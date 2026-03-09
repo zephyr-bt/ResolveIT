@@ -12,15 +12,17 @@
         body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-color); overflow-x: hidden; }
         h1, h2, h3, h4, .font-display { font-family: 'Outfit', sans-serif; }
         
+        /* Animated Mesh Background */
         .bg-shape { position: fixed; filter: blur(100px); z-index: -1; opacity: 0.6; animation: float 20s infinite alternate; }
         .shape1 { width: 500px; height: 500px; background: #c7d2fe; top: -100px; left: -100px; }
         .shape2 { width: 400px; height: 400px; background: #e0e7ff; bottom: -100px; right: -50px; animation-delay: -5s; }
         .shape3 { width: 600px; height: 600px; background: #fbcfe8; top: 20%; left: 30%; animation-delay: -10s; }
         @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(50px, 50px) scale(1.1); } }
 
+        /* Premium Glassmorphism */
         .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05); }
         
-        /* Badges */
+        /* Ticket Badges & Animations */
         .status-open { background: #fee2e2; color: #ef4444; border: 1px solid #fca5a5; }
         .status-progress { background: #e0e7ff; color: #4f46e5; border: 1px solid #a5b4fc; }
         .status-resolved { background: #dcfce3; color: #10b981; border: 1px solid #86efac; }
@@ -32,6 +34,7 @@
         .chat-bubble-me { background: #4f46e5; color: white; border-radius: 16px 16px 4px 16px; padding: 8px 12px; max-width: 80%; width: fit-content; margin-left: auto; }
         .chat-bubble-them { background: #f1f5f9; color: #334155; border-radius: 16px 16px 16px 4px; padding: 8px 12px; max-width: 80%; width: fit-content; }
         
+        /* Toast Notifications */
         #toast { position: fixed; top: 20px; right: 20px; z-index: 9999; transform: translateX(100%); opacity: 0; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
         #toast.show { transform: translateX(0); opacity: 1; }
     </style>
@@ -63,6 +66,7 @@
                 <div class="w-20 h-20 bg-white rounded-3xl shadow-xl shadow-indigo-100 mx-auto flex items-center justify-center mb-6"><span class="text-4xl">🛠️</span></div>
                 <h2 class="text-3xl font-display font-black mb-2">Campus Helpdesk</h2>
                 <button onclick="loginWithGoogle()" class="w-full mt-6 flex items-center justify-center gap-3 bg-white border border-slate-200 py-4 rounded-2xl font-bold hover:shadow-lg transition-all">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-5 h-5"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.7 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
                     Continue with Google
                 </button>
             </div>
@@ -72,15 +76,17 @@
             <div class="glass-card p-10 rounded-[2.5rem] text-center">
                 <h2 class="text-3xl font-display font-black mb-6 text-slate-800">Select Your Role</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div onclick="setRole('user')" class="bg-white border-2 border-slate-100 p-8 rounded-[2rem] hover:border-indigo-500 cursor-pointer group">
+                    <div onclick="setRole('user')" class="bg-white border-2 border-slate-100 p-8 rounded-[2rem] hover:border-indigo-500 cursor-pointer group transition-all">
+                        <div class="w-16 h-16 bg-indigo-50 text-indigo-500 rounded-2xl mx-auto flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><span class="text-2xl">🙋‍♂️</span></div>
                         <h3 class="font-display font-bold text-xl mb-2 text-slate-800">General User</h3>
                         <p class="text-xs text-slate-400 font-medium">Submit a help ticket</p>
                     </div>
-                    <div onclick="showPinInput()" class="bg-white border-2 border-slate-100 p-8 rounded-[2rem] hover:border-blue-500 cursor-pointer group">
+                    <div onclick="showPinInput()" class="bg-white border-2 border-slate-100 p-8 rounded-[2rem] hover:border-blue-500 cursor-pointer group transition-all">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl mx-auto flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors"><span class="text-2xl">👨‍🔧</span></div>
                         <h3 class="font-display font-bold text-xl mb-2 text-slate-800">Support Admin</h3>
-                        <div id="pinArea" class="hidden mt-4 pt-4 border-t border-slate-100">
-                            <input type="password" id="adminPin" placeholder="PIN" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 text-center font-black tracking-widest outline-none mb-3" onclick="event.stopPropagation()">
-                            <button onclick="verifyAdmin(event)" class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl">Unlock Dashboard</button>
+                        <div id="pinArea" class="hidden mt-4 pt-4 border-t border-slate-100 animate-[fadeIn_0.3s_ease-out]">
+                            <input type="password" id="adminPin" placeholder="Admin PIN" maxlength="6" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 text-center font-black tracking-widest outline-none mb-3" onclick="event.stopPropagation()">
+                            <button onclick="verifyAdmin(event)" class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition">Unlock Dashboard</button>
                         </div>
                     </div>
                 </div>
@@ -91,7 +97,7 @@
             <div class="lg:col-span-1 glass-card p-8 rounded-[2.5rem] h-fit">
                 <h3 class="text-2xl font-display font-black tracking-tight mb-6">Create Ticket</h3>
                 <div class="space-y-4">
-                    <select id="ticketCategory" class="w-full p-4 rounded-xl bg-white border border-slate-200 font-bold outline-none"><option>💻 IT & Network</option><option>🔧 Plumbing</option><option>⚡ Electrical</option></select>
+                    <select id="ticketCategory" class="w-full p-4 rounded-xl bg-white border border-slate-200 font-bold outline-none text-slate-700"><option>💻 IT & Network</option><option>🔧 Plumbing</option><option>⚡ Electrical</option><option>🧹 Cleaning</option><option>ℹ️ General</option></select>
                     
                     <select id="ticketPriority" class="w-full p-4 rounded-xl bg-white border border-slate-200 font-bold outline-none text-slate-700">
                         <option value="Normal">🟢 Normal Priority</option>
@@ -101,12 +107,15 @@
 
                     <input type="text" id="ticketTitle" placeholder="Issue Title" class="w-full p-4 rounded-xl bg-white border border-slate-200 font-medium outline-none">
                     <textarea id="ticketDesc" rows="3" placeholder="Details..." class="w-full p-4 rounded-xl bg-white border border-slate-200 font-medium outline-none resize-none"></textarea>
-                    <button onclick="submitTicket()" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl hover:bg-indigo-700 shadow-lg mt-4">Submit Ticket</button>
+                    <button onclick="submitTicket()" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl hover:bg-indigo-700 shadow-lg transition active:scale-95 mt-4">Submit Ticket</button>
                 </div>
             </div>
 
             <div class="lg:col-span-2 glass-card p-8 rounded-[2.5rem]">
-                <h3 class="text-2xl font-display font-black tracking-tight mb-6">My Active Tickets</h3>
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-display font-black tracking-tight">My Active Tickets</h3>
+                    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-[10px] font-black uppercase">Live Updates</span>
+                </div>
                 <div id="userTicketsList" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2"></div>
             </div>
         </section>
@@ -135,11 +144,10 @@
                 <button onclick="toggleChat()" class="text-indigo-200 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
             </div>
             
-            <div id="chatListView" class="flex-1 overflow-y-auto p-2 bg-slate-50">
-                </div>
+            <div id="chatListView" class="flex-1 overflow-y-auto p-2 bg-slate-50"></div>
 
             <div id="chatMessageView" class="hidden flex-1 flex flex-col bg-white overflow-hidden">
-                <button onclick="backToChatList()" class="text-xs font-bold text-indigo-600 p-2 bg-indigo-50 border-b border-indigo-100 text-left flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Back to List</button>
+                <button onclick="backToChatList()" class="text-xs font-bold text-indigo-600 p-2 bg-indigo-50 border-b border-indigo-100 text-left flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Back</button>
                 <div id="messagesArea" class="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50 flex flex-col"></div>
                 <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
                     <input type="text" id="chatInput" placeholder="Type a message..." class="flex-1 bg-slate-100 rounded-full px-4 outline-none text-sm">
@@ -158,19 +166,20 @@
     </div>
 
     <script type="module">
+        // 1. PERFECT VERSION MATCH - ALL FIREBASE 10.7.1
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        // Added arrayUnion for the chat messages array
         import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, onSnapshot, addDoc, serverTimestamp, query, where, arrayUnion } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        // 👉 PASTE YOUR FIREBASE CONFIG HERE
+        // 2. YOUR EXACT RESOLVEIT CREDENTIALS
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_DOMAIN.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
+            apiKey: "AIzaSyB6LTqjwF-AcSc03h3lz58960t75LG3orM",
+            authDomain: "resolveit-b1a48.firebaseapp.com",
+            projectId: "resolveit-b1a48",
+            storageBucket: "resolveit-b1a48.firebasestorage.app",
+            messagingSenderId: "730693887461",
+            appId: "1:730693887461:web:4ab5e8ed9e5eeed2a4fb0c",
+            measurementId: "G-DRLK5PHBXP"
         };
 
         const app = initializeApp(firebaseConfig);
@@ -202,16 +211,16 @@
                     document.getElementById('navActions').classList.remove('hidden');
                     document.getElementById('userName').innerText = userData.name;
                     document.getElementById('roleBadge').innerText = userData.role;
-                    document.getElementById('chatWidget').classList.remove('hidden'); // Show Chat Widget
+                    document.getElementById('chatWidget').classList.remove('hidden');
 
                     if (userData.role === 'admin') {
                         document.getElementById('adminView').classList.remove('hidden');
                         initAdmin();
-                        initChatList('user'); // Admin sees Users
+                        initChatList('user');
                     } else {
                         document.getElementById('userView').classList.remove('hidden');
                         initUser(user.uid);
-                        initChatList('admin'); // User sees Admins
+                        initChatList('admin');
                     }
                 } else {
                     document.getElementById('loginView').classList.add('hidden');
@@ -235,12 +244,11 @@
         };
 
         function getStatusBadge(status) {
-            if(status === 'Open') return `<span class="status-open px-2 py-1 rounded text-[10px] font-black uppercase">Open</span>`;
-            if(status === 'In Progress') return `<span class="status-progress px-2 py-1 rounded text-[10px] font-black uppercase">In Progress</span>`;
-            if(status === 'Resolved') return `<span class="status-resolved px-2 py-1 rounded text-[10px] font-black uppercase">Resolved</span>`;
+            if(status === 'Open') return `<span class="status-open px-2 py-1 rounded text-[10px] font-black uppercase tracking-widest">Open</span>`;
+            if(status === 'In Progress') return `<span class="status-progress px-2 py-1 rounded text-[10px] font-black uppercase tracking-widest">In Progress</span>`;
+            if(status === 'Resolved') return `<span class="status-resolved px-2 py-1 rounded text-[10px] font-black uppercase tracking-widest">Resolved</span>`;
         }
 
-        // --- TICKET SUBMISSION (WITH PRIORITY) ---
         window.submitTicket = async () => {
             const title = document.getElementById('ticketTitle').value;
             const desc = document.getElementById('ticketDesc').value;
@@ -255,9 +263,9 @@
                 title: title,
                 description: desc,
                 category: cat,
-                priority: prio, // NEW!
+                priority: prio,
                 status: "Open", 
-                assignedTo: null, // NEW: For claiming
+                assignedTo: null, 
                 createdAt: serverTimestamp()
             });
 
@@ -267,18 +275,18 @@
 
         function initUser(uid) {
             onSnapshot(collection(db, "tickets"), (snap) => {
-                const myTickets = snap.docs.filter(d => d.data().userId === uid).sort((a,b) => b.data().createdAt - a.data().createdAt);
+                const myTickets = snap.docs.filter(d => d.data().userId === uid).sort((a,b) => (b.data().createdAt?.seconds || 0) - (a.data().createdAt?.seconds || 0));
                 
                 document.getElementById('userTicketsList').innerHTML = myTickets.map(doc => {
                     const d = doc.data();
-                    const isUrgent = d.priority === 'Urgent' ? 'priority-urgent' : '';
-                    const assignedStr = d.assignedTo ? `<span class="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-1 rounded font-bold mt-2 inline-block">👨‍🔧 Handled by: ${d.assignedTo}</span>` : '';
+                    const isUrgent = d.priority === 'Urgent' ? 'priority-urgent bg-rose-50' : '';
+                    const assignedStr = d.assignedTo ? `<span class="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-1 rounded font-bold mt-3 inline-block">👨‍🔧 Handled by: ${d.assignedTo}</span>` : '';
                     
                     return `
-                    <div class="bg-white border border-slate-100 p-5 rounded-2xl shadow-sm ${isUrgent}">
-                        <div class="flex justify-between items-start mb-2"><span class="text-xs font-bold text-slate-400 uppercase">${d.category}</span> ${getStatusBadge(d.status)}</div>
+                    <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm animate-[fadeIn_0.3s_ease-out] ${isUrgent}">
+                        <div class="flex justify-between items-start mb-2"><span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${d.category}</span> ${getStatusBadge(d.status)}</div>
                         <h4 class="font-display font-bold text-lg text-slate-800">${d.title}</h4>
-                        <p class="text-[10px] font-bold ${d.priority==='Urgent'?'text-rose-500':'text-blue-500'} uppercase mb-2">Priority: ${d.priority}</p>
+                        <p class="text-[10px] font-bold ${d.priority==='Urgent'?'text-rose-500':'text-blue-500'} uppercase tracking-widest mb-2">Priority: ${d.priority}</p>
                         <p class="text-sm text-slate-500">${d.description}</p>
                         ${assignedStr}
                     </div>`;
@@ -286,7 +294,6 @@
             });
         }
 
-        // --- ADMIN TICKET CLAIMING & UPDATING ---
         window.claimTicket = async (ticketId) => {
             await updateDoc(doc(db, "tickets", ticketId), { assignedTo: userData.name, status: 'In Progress' });
             showToast("Ticket assigned to you!");
@@ -301,7 +308,6 @@
             onSnapshot(collection(db, "tickets"), (snap) => {
                 let o=0, p=0, r=0;
                 const all = snap.docs.sort((a,b) => {
-                    // Urgent tickets jump to top
                     if(a.data().priority === 'Urgent' && b.data().priority !== 'Urgent') return -1;
                     if(b.data().priority === 'Urgent' && a.data().priority !== 'Urgent') return 1;
                     return (b.data().createdAt?.seconds || 0) - (a.data().createdAt?.seconds || 0);
@@ -314,17 +320,17 @@
                     const isUrgent = d.priority === 'Urgent' ? 'priority-urgent bg-rose-50' : '';
                     
                     let actionBtn = '';
-                    if (d.status === 'Open') actionBtn = `<button onclick="claimTicket('${doc.id}')" class="text-xs bg-indigo-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-indigo-700">Assign to Me</button>`;
-                    else if (d.status === 'In Progress' && d.assignedTo === userData.name) actionBtn = `<button onclick="resolveTicket('${doc.id}')" class="text-xs bg-emerald-500 text-white font-bold px-4 py-2 rounded-lg">Mark Resolved</button>`;
-                    else if (d.status === 'In Progress') actionBtn = `<span class="text-xs font-bold text-slate-400">Locked by ${d.assignedTo}</span>`;
+                    if (d.status === 'Open') actionBtn = `<button onclick="claimTicket('${doc.id}')" class="text-xs bg-indigo-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Assign to Me</button>`;
+                    else if (d.status === 'In Progress' && d.assignedTo === userData.name) actionBtn = `<button onclick="resolveTicket('${doc.id}')" class="text-xs bg-emerald-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-emerald-600 transition">Mark Resolved</button>`;
+                    else if (d.status === 'In Progress') actionBtn = `<span class="text-[10px] font-bold text-slate-400 bg-slate-100 px-3 py-2 rounded-lg">Locked by ${d.assignedTo}</span>`;
 
                     return `
-                    <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm ${isUrgent}">
+                    <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm animate-[fadeIn_0.3s_ease-out] ${isUrgent}">
                         <div class="flex justify-between items-start mb-2">
-                            <div><p class="text-sm font-bold">${d.userName}</p><p class="text-[10px] font-bold ${d.priority==='Urgent'?'text-rose-500':'text-indigo-500'} uppercase">${d.priority} PRIORITY</p></div>
+                            <div><p class="text-sm font-bold text-slate-800">${d.userName}</p><p class="text-[10px] font-bold ${d.priority==='Urgent'?'text-rose-500':'text-blue-500'} uppercase tracking-widest">${d.priority} PRIORITY</p></div>
                             ${getStatusBadge(d.status)}
                         </div>
-                        <h4 class="font-display font-bold text-md text-slate-800">${d.title}</h4>
+                        <h4 class="font-display font-bold text-md text-slate-800 mt-2">${d.title}</h4>
                         <div class="flex justify-between items-center mt-4 border-t border-slate-100 pt-3">${actionBtn}</div>
                     </div>`;
                 }).join('');
@@ -335,27 +341,25 @@
 
         // --- LIVE CHAT ENGINE ---
         window.toggleChat = () => {
-            const panel = document.getElementById('chatPanel');
-            panel.classList.toggle('hidden');
+            document.getElementById('chatPanel').classList.toggle('hidden');
         };
 
         window.backToChatList = () => {
             document.getElementById('chatMessageView').classList.add('hidden');
             document.getElementById('chatListView').classList.remove('hidden');
             document.getElementById('chatSubtitle').innerText = userData.role === 'admin' ? "Select User" : "Select an Admin";
-            if(chatUnsubscribe) chatUnsubscribe(); // Stop listening to old chat
+            if(chatUnsubscribe) chatUnsubscribe(); 
         };
 
-        // Populate the list of people to chat with
         function initChatList(targetRole) {
             const q = query(collection(db, "users"), where("role", "==", targetRole));
             onSnapshot(q, (snap) => {
                 document.getElementById('chatListView').innerHTML = snap.docs.map(doc => {
-                    if (doc.id === auth.currentUser.uid) return ''; // Don't show yourself
+                    if (doc.id === auth.currentUser.uid) return ''; 
                     return `
-                    <div onclick="openChat('${doc.id}', '${doc.data().name}')" class="bg-white p-3 mb-2 rounded-xl border border-slate-100 flex items-center gap-3 cursor-pointer hover:bg-indigo-50 transition">
+                    <div onclick="openChat('${doc.id}', '${doc.data().name}')" class="bg-white p-3 mb-2 rounded-xl border border-slate-100 flex items-center gap-3 cursor-pointer hover:bg-indigo-50 hover:border-indigo-200 transition">
                         <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold">${doc.data().name.charAt(0)}</div>
-                        <div><p class="font-bold text-sm text-slate-800">${doc.data().name}</p><p class="text-[10px] text-slate-400 uppercase">Click to chat</p></div>
+                        <div><p class="font-bold text-sm text-slate-800">${doc.data().name}</p><p class="text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">Click to chat</p></div>
                     </div>`;
                 }).join('');
             });
@@ -366,7 +370,6 @@
             document.getElementById('chatMessageView').classList.remove('hidden');
             document.getElementById('chatSubtitle').innerText = `Chatting with ${targetName}`;
             
-            // Create a unique, alphabetical Chat ID so both users share the same document
             const uids = [auth.currentUser.uid, targetUid].sort();
             activeChatId = `${uids[0]}_${uids[1]}`;
             
@@ -376,7 +379,6 @@
                 await setDoc(chatRef, { messages: [] });
             }
 
-            // Listen to messages array
             if(chatUnsubscribe) chatUnsubscribe();
             chatUnsubscribe = onSnapshot(chatRef, (docSnap) => {
                 const msgs = docSnap.data()?.messages || [];
@@ -385,7 +387,7 @@
                     const isMe = m.senderId === auth.currentUser.uid;
                     return `<div class="${isMe ? 'chat-bubble-me' : 'chat-bubble-them'} text-sm shadow-sm">${m.text}</div>`;
                 }).join('');
-                area.scrollTop = area.scrollHeight; // Auto scroll to bottom
+                area.scrollTop = area.scrollHeight; 
             });
         };
 
@@ -397,7 +399,6 @@
             input.value = "";
             const chatRef = doc(db, "chats", activeChatId);
             
-            // Push new message object to the array
             await updateDoc(chatRef, {
                 messages: arrayUnion({
                     senderId: auth.currentUser.uid,
@@ -407,7 +408,6 @@
             });
         };
 
-        // Send message on Enter key
         document.getElementById('chatInput').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') sendMessage();
         });
